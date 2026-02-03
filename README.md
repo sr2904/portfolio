@@ -90,7 +90,9 @@ Cursor, Claude Code, GitHub Copilot
 
 - **AI Integration:** Built an AI-powered tutoring platform with **95% success rate** in real-time signal processing  
 - **Full-Stack Deployment:** Managed build & release using **Next.js** and **AWS** for scalable hosting  
-
+https://youtu.be/hb124FZQE84?si=mM7YhrCfo0rJpL1u
+[![AI Tutor Demo](https://youtu.be/hb124FZQE84?si=mM7YhrCfo0rJpL1u/0.jpg)]
+(https://youtu.be/hb124FZQE84?si=mM7YhrCfo0rJpL1u)
 ---
 
 ## 🎯 What I’m Looking For
