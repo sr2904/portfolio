@@ -1,11 +1,12 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  // Assets are served from `public/` at the site root in Vite.
+  const computer = useGLTF("/desktop_pc/scene.gltf");
 
   return (
     <mesh>
@@ -31,6 +32,7 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const glRef = useRef(null);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -53,6 +55,17 @@ const ComputersCanvas = () => {
     };
   }, []);
 
+  useEffect(() => {
+    return () => {
+      const gl = glRef.current;
+      if (!gl) return;
+
+      gl.dispose();
+      const loseContext = gl.getContext()?.getExtension("WEBGL_lose_context");
+      loseContext?.loseContext();
+    };
+  }, []);
+
   return (
     <Canvas
       frameloop='demand'
@@ -60,6 +73,9 @@ const ComputersCanvas = () => {
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
+      onCreated={({ gl }) => {
+        glRef.current = gl;
+      }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -70,7 +86,6 @@ const ComputersCanvas = () => {
         <Computers isMobile={isMobile} />
       </Suspense>
 
-      <Preload all />
     </Canvas>
   );
 };

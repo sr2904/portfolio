@@ -6,6 +6,8 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import ai from "./ai.png";
+import wial from "./wial.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -21,10 +23,10 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import edvisingu from "./company/edvisingu.png";
+import dsl from "./company/dsl.png";
+import ds from "./company/ds.png";
+import aramark from "./company/aramark.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -52,11 +54,13 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
+  edvisingu,
+  dsl,
+  ds,
+  aramark,
   carrent,
   jobit,
   tripguide,
+  ai,
+  wial,
 };
